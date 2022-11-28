@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+    <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Project PK</th>
+        <th>Description</th>
+    </tr>
+    {% for project in projects %}
+    <tr class="{% cycle 'bg-white' 'bg-grey' %}">
+        <td><a href="{% url 'project_code' project.code %}"><strong>{{ project.name }}</strong></a></td>
+        <td>{{project.code}}</td>
+        <td><a href="{% url 'project' project.pk %}">{{project.pk}}</a></td>
+        <td>{{ project.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

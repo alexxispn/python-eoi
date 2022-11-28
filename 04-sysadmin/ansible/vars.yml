@@ -1,0 +1,7 @@
+project_path: "/home/alexis/workspace/python/django_polls_ansible"
+github_url: "https://github.com/alexxispn/django_polls.git"
+requirements_path: "/home/alexis/workspace/python/django_polls_ansible/requirements.txt"
+virtualenv_path: "/home/alexis/workspace/python/django_polls_ansible/.venv"
+manage_path: "/home/alexis/workspace/python/django_polls_ansible/manage.py"
+fixtures_path: "/home/alexis/workspace/python/django_polls_ansible/fixtures/polls_data.json"
+

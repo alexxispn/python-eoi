@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+    <tr>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Due date</th>
+        <th>Project Code</th>
+    </tr>
+    {% for task in tasks %}
+    <tr class="{% cycle 'bg-white' 'bg-grey' %}">
+        <td><strong>{{ task.name }}</strong></td>
+        <td>
+            {% if task.priority == 'High' %}
+            <span class="priority">High</span>
+            {% elif task.priority == 'Medium' %}
+            <span>Medium</span>
+            {% else %}
+            <span>Low</span>
+            {% endif %}
+        <td>
+            {% if task.is_due %}
+            <span class="tag is-danger is-rounded"><kbd>Date is due!</kbd></span> | <span
+                class="tag is-danger is-rounded"><kbd>{{ task.due_date }}</kbd></span>
+            {% else %}
+            <span class="tag is-success is-rounded"><kbd>{{ task.due_date }}</kbd></span>
+            {% endif %}
+        <td>
+            {% if task.project.code %}
+            <a href="{% url 'project_code' task.project.code %}" class="tag is-link is-rounded"><kbd>{{ task.project.code }}</kbd></a>
+            {% else %}
+            <i>N/A</i>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

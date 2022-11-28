@@ -1,0 +1,6 @@
+{% extends 'tasks/base.html' %}
+{% block title %}Project {{project}} - {{project.code}} {% endblock %}
+{% block header %}Project {{project}} - {{project.code}} {% endblock %}
+{% block content %}
+{% include 'tasks/includes/task_table.html' with tasks=project.task_set.all %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title %}TaskMaster{% endblock %} </title>
+</head>
+<!--<link rel="stylesheet" href="{% static 'tasks/css/style.css' %}">-->
+<link rel="stylesheet" href="{% static 'tasks/css/bulma.css' %}">
+<body>
+<header>
+<!--    {% include 'tasks/includes/task_topar.html' %}-->
+    {% include 'tasks/includes/navbar.html' %}
+    <h1 class="title is-1 has-text-centered is-flex is-justify-content-center is-align-items-center">
+        {% block header %}TaskMaster{% endblock %}
+        <img src="{% static 'tasks/img/logo.png' %}" alt="Taskmaster logo" width="70" height="70">
+    </h1>
+</header>
+<main class="container mt-5">
+    {% block content %}
+    {% endblock %}
+</main>
+<script src="{% static 'tasks/js/navbar.js' %}"></script>
+</body>
+</html>
