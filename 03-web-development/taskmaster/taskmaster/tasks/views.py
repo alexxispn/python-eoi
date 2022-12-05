@@ -43,8 +43,9 @@ def unfinished(request):
 
 
 def projects(request):
-    projects = models.Project.objects.all()
-    return render(request, 'tasks/projects.html', {'projects': projects})
+    projects = models.Project.objects.all().order_by('name')
+    return render(request, 'tasks/projects.html',
+                  {'projects': projects})
 
 
 def project(request, pk):

@@ -16,6 +16,17 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def progress(self):
+        days_since_start = (timezone.now().date() - self.start_date).days
+        days_total = (self.end_date - self.start_date).days
+        if today() <= self.start_date:
+            return 0.0
+        elif today() >= self.end_date:
+            return 100.0
+        else:
+            return round((days_since_start / days_total) * 100, 1)
+
 
 class Task(models.Model):
     name = models.CharField(max_length=250)
