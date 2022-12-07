@@ -16,7 +16,6 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
-    @property
     def progress(self):
         days_since_start = (timezone.now().date() - self.start_date).days
         days_total = (self.end_date - self.start_date).days
